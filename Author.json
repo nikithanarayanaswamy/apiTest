@@ -1,0 +1,19 @@
+{
+  "authorName" : "nik",
+  "books" : [
+
+    {
+      "bookName" : "abc",
+      "releaseDate" : "2020-20-12",
+      "aBoolean" : true,
+      "versions" : [1,2,3]
+    },
+    {
+      "bookName" : "abc",
+      "releaseDate" : "2020-20-12",
+      "aBoolean" : true,
+      "versions" : [1,2,3]
+    }
+  ]
+
+}
