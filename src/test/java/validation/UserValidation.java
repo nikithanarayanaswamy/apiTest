@@ -2,16 +2,25 @@ package validation;
 
 import org.testng.Assert;
 import pojoobjects.Ad;
+import pojoobjects.CreateUserResponse;
 import pojoobjects.User;
 import pojoobjects.Data;
+
+import java.math.BigDecimal;
 
 
 public class UserValidation {
 
-    public static void validateUser(User user) {
+    public static void validateGetUser(User user) {
 
         validateData(user.getData());
         validateAd (user.getAd());
+
+    }
+
+    public static void validateCreateUser(CreateUserResponse createUserResponse) {
+
+       Assert.assertTrue(BigDecimal.class.isInstance(createUserResponse.getId()));
 
     }
 

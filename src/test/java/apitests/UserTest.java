@@ -4,6 +4,8 @@ import httputils.HttpMethods;
 import jackson.JsonObjectUtils;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pojoobjects.CreateUserRequest;
+import pojoobjects.CreateUserResponse;
 import pojoobjects.User;
 import validation.UserValidation;
 
@@ -25,11 +27,19 @@ public class UserTest {
 
     }
     @Test
-    public void createUser() throws Exception {
+    public void getUser() throws Exception {
 
         String strBody = HttpMethods.HttpGet( properties.getProperty("getPerson"));
 
-        UserValidation.validateUser(JsonObjectUtils.stringToObject(strBody, User.class));
+        UserValidation.validateGetUser(JsonObjectUtils.stringToObject(strBody, User.class));
+
+    }
+
+    @Test
+    public void createUser() throws Exception {
+
+        String strBody = HttpMethods.HttpPost( properties.getProperty("createPerson"), JsonObjectUtils.objectToString(CreateUserRequest.class));
+        UserValidation.validateCreateUser(JsonObjectUtils.stringToObject(strBody,CreateUserResponse.class));
 
     }
 }
